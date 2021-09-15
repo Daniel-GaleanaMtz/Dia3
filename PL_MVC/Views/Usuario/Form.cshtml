@@ -1,0 +1,222 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Usuario</h5>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.IdUsuario, new { @class = "hidden" })
+                            @Html.TextBoxFor(model => model.IdUsuario, new { @class = "form-control hidden" })
+                            @Html.ValidationMessageFor(model => model.IdUsuario)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control",  @onblur = "validateEmail(this);" })
+                            <span id="result"></span>
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.UserPassword)
+                            @Html.TextBoxFor(model => model.UserPassword, new { @class = "form-control", @type = "password", @id = "txtpassword" })
+                            @Html.ValidationMessageFor(model => model.UserPassword)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.UserPassword, "Validar Password")
+                            @Html.TextBoxFor(model => model.UserPassword, new { @class = "form-control", @type = "password", @onblur = "validatePassword(this);"})
+                            <span id="resultPassword"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Nombre)
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombreUser", @onkeypress = "return SoloLetras(event)" })
+                            @Html.ValidationMessageFor(model => model.Nombre)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ApellidoPaterno)
+                            @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @id = "txtApellidoPaterno", @onkeypress = "return SoloLetras(event)" })
+                            @Html.ValidationMessageFor(model => model.ApellidoPaterno)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ApellidoMaterno)
+                            @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @id = "txtApellidoMaterno", @onkeypress = "return SoloLetras(event)" })
+                            @Html.ValidationMessageFor(model => model.ApellidoMaterno)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.FechaNacimiento)
+                            <div class="form-inline">
+                                @Html.TextBoxFor(model => model.FechaNacimiento, "{0:dd-MM-yyyy}", new { @class = "form-control", @id = "txtFechaNacimiento" })
+                            </div>                                                    
+                            @Html.ValidationMessageFor(model => model.FechaNacimiento)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Sexo)
+                            <div class="form-inline">
+                                Masculino: @Html.RadioButtonFor(model => model.Sexo, "Masculino", new { @id = "radioBtnM" })
+                                Femenino: @Html.RadioButtonFor(model => model.Sexo, "Femenino", new { @id = "radioBtnF" })
+                            </div>                  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Estado, new { @class = "hidden" })
+                            @Html.TextBoxFor(model => model.Estado, "True", new { @class = "form-control hidden" })
+                            @Html.ValidationMessageFor(model => model.Estado)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Rol)
+                            @Html.DropDownListFor(model => model.Rol.IdRol, new SelectList(Model.Rol.Rols, "IdRol", "Nombre"), "- Seleccione el Rol -", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Rol.IdRol)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Telefono)
+                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", @id = "txtTelefono", @onkeypress = "return SoloNumeros(event)" })
+                            @Html.ValidationMessageFor(model => model.Telefono)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <input type="submit" id="btnSubmit" value="Guardar" class="btn btn-success" onclick="return validacion()" />
+                            @Html.ActionLink("Regresar", "GetAll", "Usuario", htmlAttributes: new { @class = "btn btn-danger" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function validacion() {
+        var EmailOk = document.getElementById('result');
+        var PassOk = document.getElementById('resultPassword');
+        var txtNombreUser = document.getElementById('txtNombreUser')
+        var txtApellidoPaterno = document.getElementById('txtApellidoPaterno')
+        var txtApellidoMaterno = document.getElementById('txtApellidoMaterno')
+        var txtTelefono = document.getElementById('txtTelefono')
+        var radioBtnM = document.getElementById('radioBtnM')
+        var radioBtnF = document.getElementById('radioBtnF')
+        if (EmailOk.textContent == "Email valido" && PassOk.textContent == "Contraseñas iguales" && txtNombreUser.value != "" && txtApellidoPaterno.value != "" && txtApellidoMaterno.value != "" && txtTelefono.value != "" && (radioBtnM.checked != false || radioBtnF.checked != false)) {
+            return true;
+        } else {
+            alert('[ERROR] Campos llenados incorrectamente. No pueden haber campos vacios.');
+            return false;
+        }
+    }
+
+    var j = jQuery.noConflict();
+    j(function () {
+        j("#txtFechaNacimiento").datepicker({
+            dateFormat: 'dd-mm-yy',
+            showOn: 'button',
+            buttonImage: "../Content/calendar.jpg",
+            buttonImageOnly: true,
+            changeMonth: true,
+            changeYear: true
+
+        });
+        $(".ui-datepicker-trigger").css("width", "30px");
+        $(".ui-datepicker-trigger").css("height", "30px");
+    });
+
+    function SoloLetras(e) {
+        var key = e.keyCode || e.which;
+        var letra = String.fromCharCode(key).toLowerCase();
+        var caracter = e.key;
+        if (!/^[a-zA-Z ]*$/g.test(letra)) {
+            alert("Solo se aceptan letras");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function SoloNumeros(e) {
+        var key = e.keyCode || e.which;
+        var letra = String.fromCharCode(key).toLowerCase();
+        var caracter = e.key;
+        if (!/^[0-9]*$/g.test(letra)) {
+            alert("Solo se aceptan números");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function validateEmail(email) {
+        var reg = /^[a-zA-Z0-9_.-]+@@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{0,4}$/;
+        var resultado = document.getElementById('result');
+        
+        if (reg.test(email.value) == false) {
+            resultado.textContent = "Email no valido";
+            resultado.style = "color: red";
+            email.style = "border: 1px solid #D6001C"
+            return false;
+        }
+        else {         
+            resultado.textContent = "Email valido";
+            resultado.style = "color: green";
+            email.style = "border: 1px solid #00A82D"
+            return true;
+        }     
+    }
+    function validatePassword(password) {
+        var txtpassword = document.getElementById('txtpassword');
+        var resultPassword = document.getElementById('resultPassword')
+        if (txtpassword.value == password.value) {
+            resultPassword.textContent = "Contraseñas iguales"
+            resultPassword.style = "color: green"
+            password.style = "border: 1px solid #cccccc;"
+            txtpassword.style = "border: 1px solid #cccccc;"
+        } else {
+            resultPassword.textContent = "Contraseñas no iguales"   
+            resultPassword.style = "color: red"
+            txtpassword.style = "border: 1px solid #D6001C"
+            password.style = "border: 1px solid #D6001C"
+        }
+    }
+</script>

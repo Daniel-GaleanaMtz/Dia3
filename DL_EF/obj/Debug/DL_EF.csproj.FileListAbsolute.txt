@@ -1,0 +1,21 @@
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.dll.config
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.dll.config
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\DL_EF.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.SqlServer.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\bin\Debug\EntityFramework.SqlServer.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.csproj.AssemblyReference.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.csproj.CoreCompileInputs.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.csproj.CopyComplete
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\DL_EF\obj\Debug\DL_EF.pdb

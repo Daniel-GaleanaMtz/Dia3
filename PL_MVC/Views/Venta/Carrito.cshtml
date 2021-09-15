@@ -1,0 +1,66 @@
+﻿@model ML.Result
+@Html.Raw(TempData["msg"])
+@{
+    ViewBag.Title = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Carrito De Compras ML.Result</h2>
+@if (@Model.Objects == null || @Model.Objects.Count == 0)
+{
+    <h2>Carrito vacio 😢</h2>
+    <a class="btn btn-primary-black" style="margin-bottom: 1%" href="@Url.Action("ProductoGetAll", "Venta")">Vamos a comprar</a>
+
+}
+else
+{
+    <a class="btn btn-primary-black pull-right" style="margin-bottom: 1%" href="@Url.Action("ProductoGetAll", "Venta")"><span class="glyphicon glyphicon-chevron-left"></span>  Seguir comprando</a>
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <td class="hidden">IdProducto</td>
+                <td class="text-center">Imagen</td>
+                <td class="text-center">Nombre</td>
+                <td class="text-center">Precio</td>
+                <td class="text-center">Stock</td>
+                <td class="text-center btn-res">Cantidad</td>
+                <td class="text-center">Eliminar</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ML.VentaProducto ventaproducto in @Model.Objects)
+            {
+                <tr>
+                    @if (ventaproducto.Producto.Imagen != null)
+                    {
+                        <td class="text-center"><img id="prevImage" src="data:image/jpeg;base64,@Convert.ToBase64String(ventaproducto.Producto.Imagen)" width="100" height="100" /></td>
+                    }
+                    else
+                    {
+                        <td class="text-center"><img src="~/Content/sinImagen.jpg" style=" height:100px; width:100px;" /></td>
+                    }
+                    <td class="hidden">@ventaproducto.Producto.IdProducto</td>
+                    <td class="text-center">@ventaproducto.Producto.Nombre</td>
+                    <td class="text-center">@ventaproducto.Producto.Precio</td>
+                    <td class="text-center">@ventaproducto.Producto.Stock</td>
+                    <td class="text-center btn-res">
+                        <a class="btn btn-default" href="@Url.Action("Incrementar", "Venta", new { IdProducto = @ventaproducto.Producto.IdProducto })">+</a>
+                        @ventaproducto.Cantidad
+                        @if (@ventaproducto.Cantidad != 1)
+                        {
+                           <a class="btn btn-default" href="@Url.Action("Decrementar", "Venta", new { IdProducto = @ventaproducto.Producto.IdProducto })">-</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-default" href="@Url.Action("Eliminar", "Venta", new { IdProducto = @ventaproducto.Producto.IdProducto })" onclick="return confirm('Estas seguro que deseas eliminar este registro?');">-</a>
+                        }                       
+                    </td>
+                    <td class="text-center"><a class="glyphicon glyphicon-remove pointermouse" href="@Url.Action("Eliminar", "Venta", new { IdProducto = @ventaproducto.Producto.IdProducto })" onclick="return confirm('Estas seguro que deseas eliminar este registro?');"></a></td>               
+                </tr>             
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-primary-black pull-right" style="margin-bottom: 1%" href="@Url.Action("ProcesarCompra", "Venta")">Finalizar Compra<span class="glyphicon glyphicon-chevron-right"></span></a>
+    
+}

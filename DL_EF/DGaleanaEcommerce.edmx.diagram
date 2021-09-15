@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f3f183ae7e64409a81547e2773c8c8f" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Area" Width="1.5" PointX="7.625" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Cliente" Width="1.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Departamento" Width="1.5" PointX="5.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.MetodoPago" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Proveedor" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Venta" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.VentaProducto" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Departamento_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Venta_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Venta_MetodoPago" ManuallyRouted="false" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_VentaProducto_Venta" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Producto" Width="1.5" PointX="5.5" PointY="0.5" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Producto_Departamento" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Producto_Proveedor" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_VentaProducto_Producto" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Rol" Width="1.5" PointX="10.625" PointY="2.75" />
+        <EntityTypeShape EntityType="DGaleanaEcommerceModel.Usuario" Width="1.5" PointX="12.875" PointY="1.875" />
+        <AssociationConnector Association="DGaleanaEcommerceModel.FK_Usuario_Rol" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

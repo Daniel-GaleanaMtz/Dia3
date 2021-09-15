@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9fb9e8bd-311e-4eb7-b60e-c11e543b5f81" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:10967/ServiceProducto.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceProducto.wsdl" MetadataType="Wsdl" ID="9bf0c5a3-f9d7-42a7-9c18-a52b1efa4ec0" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?wsdl" />
+    <MetadataFile FileName="ServiceProducto.xsd" MetadataType="Schema" ID="c4e7e9da-7f1a-4b1a-b421-31736edfb78c" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServiceProducto1.xsd" MetadataType="Schema" ID="3ab8ee9f-17ac-430b-a3dc-45578c682afa" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceProducto2.xsd" MetadataType="Schema" ID="7f96a357-71d1-4dd7-9793-c8a7000b282b" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceProducto3.xsd" MetadataType="Schema" ID="b830c12b-7666-4214-988a-db08142f4a67" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd5" />
+    <MetadataFile FileName="ServiceProducto4.xsd" MetadataType="Schema" ID="4c3b436a-f849-4df1-9a6e-ad315de28069" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceProducto.disco" MetadataType="Disco" ID="c370f8cd-c956-4f8a-bd98-8119e47ce331" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?disco" />
+    <MetadataFile FileName="ServiceProducto5.xsd" MetadataType="Schema" ID="1c8a356e-530f-4fa8-8170-c73d3d0555ea" SourceId="1" SourceUrl="http://localhost:10967/ServiceProducto.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

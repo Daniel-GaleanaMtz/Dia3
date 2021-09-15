@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DGaleanaEcommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="20" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="20" />
+    <Property Name="RFC" Type="varchar" MaxLength="17" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" />
+    <Property Name="IdArea" Type="int" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="IdMetodoPago" />
+    </Key>
+    <Property Name="IdMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="25" />
+    <Property Name="Precio" Type="decimal" Precision="20" Scale="0" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdDepartamento" Type="int" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+    <Property Name="Images" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="25" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="20" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="20" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="20" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="Sexo" Type="varchar" MaxLength="10" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="IdRol" Type="int" />
+    <Property Name="Telefono" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+    </Key>
+    <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" />
+    <Property Name="Total" Type="decimal" Precision="20" Scale="0" />
+    <Property Name="IdMetodoPago" Type="int" />
+    <Property Name="Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VentaProducto">
+    <Key>
+      <PropertyRef Name="IdVentaProducto" />
+    </Key>
+    <Property Name="IdVentaProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdVenta" Type="int" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="IdProducto" Type="int" />
+  </EntityType>
+  <Association Name="FK_Departamento_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="IdArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venta_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venta_MetodoPago">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="0..1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="IdMetodoPago" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IdMetodoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VentaProducto_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="VentaProducto" Type="Self.VentaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="VentaProducto">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VentaProducto_Venta">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+    <End Role="VentaProducto" Type="Self.VentaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IdVenta" />
+      </Principal>
+      <Dependent Role="VentaProducto">
+        <PropertyRef Name="IdVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AreaGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DepartamentoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="IdArea" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartamentoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartamentoGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DepartamentoGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartamentoGetByIdArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArea" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DepartamentoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="IdArea" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ProductoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Precio" Type="decimal" Mode="In" />
+    <Parameter Name="Stock" Type="int" Mode="In" />
+    <Parameter Name="IdProveedor" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Images" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="ProductoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ProductoGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ProductoGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ProductoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProducto" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Precio" Type="decimal" Mode="In" />
+    <Parameter Name="Stock" Type="int" Mode="In" />
+    <Parameter Name="IdProveedor" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Images" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="ProveedorGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RolGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UsuarioAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+    <Parameter Name="IdRol" Type="int" Mode="In" />
+    <Parameter Name="Telefono" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UsuarioGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UsuarioGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="varchar" Mode="In" />
+    <Parameter Name="Sexo" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+    <Parameter Name="IdRol" Type="int" Mode="In" />
+    <Parameter Name="Telefono" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="VentaAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+    <Parameter Name="Total" Type="decimal" Mode="In" />
+    <Parameter Name="IdMetodoPago" Type="int" Mode="In" />
+    <Parameter Name="IdVenta" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="VentaProductoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdVenta" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+    <Parameter Name="IdProducto" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DGaleanaEcommerceModelStoreContainer">
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VentaProducto" EntityType="Self.VentaProducto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Departamento_Area" Association="Self.FK_Departamento_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Departamento" EntitySet="Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Departamento" Association="Self.FK_Producto_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Proveedor" Association="Self.FK_Producto_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venta_Cliente" Association="Self.FK_Venta_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venta_MetodoPago" Association="Self.FK_Venta_MetodoPago">
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VentaProducto_Producto" Association="Self.FK_VentaProducto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="VentaProducto" EntitySet="VentaProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VentaProducto_Venta" Association="Self.FK_VentaProducto_Venta">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="VentaProducto" EntitySet="VentaProducto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

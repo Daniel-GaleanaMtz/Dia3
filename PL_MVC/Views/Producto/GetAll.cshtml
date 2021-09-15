@@ -1,0 +1,67 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<h2>Producto</h2>
+
+<div class="container">
+    <div class="row">
+        <div style="float:right; margin-bottom:1rem;">
+            @Html.ActionLink("+", "Form", "Producto", htmlAttributes: new { @class = "btn btn-success" })
+        </div>
+
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <td class="text-center">Editar</td>
+                    <td class="hidden">IdProducto</td>
+                    <td class="text-center">Nombre</td>
+                    <td class="text-center">Precio</td>
+                    <td class="text-center">Stock</td>
+                    <td class="hidden">IdProveedor</td>
+                    <td class="text-center">Proveedor</td>
+                    <td class="hidden">IdDepartamento</td>
+                    <td class="text-center">Departamento</td>
+                    <td class="text-center">Area</td>
+                    <td class="text-center">Descripción</td>
+                    <td class="text-center">Imagen</td>
+                    <td class="text-center">Eliminar</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ML.Producto producto in Model.Productos)
+                {
+                    <tr>
+                        <td class="text-center"><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Producto", new { IdProducto = producto.IdProducto })"></a></td>
+                        <td class="hidden">@producto.IdProducto</td>
+                        <td class="text-center">@producto.Nombre</td>
+                        <td class="text-center">@producto.Precio</td>
+                        <td class="text-center">@producto.Stock</td>
+                        <td class="hidden">@producto.Proveedor.IdProveedor</td>
+                        <td class="text-center">@producto.Proveedor.Nombre</td>
+                        <td class="hidden">@producto.Departamento.IdDepartamento</td>
+                        <td class="text-center">@producto.Departamento.Nombre</td>
+                        <td class="text-center">@producto.Departamento.Area.Nombre</td>
+                        <td class="text-center">@producto.Descripcion</td>
+                        
+                        @if (producto.Imagen != null)
+                        {
+                            <td class="text-center"><img id="prevImage" src="data:image/jpeg;base64,@Convert.ToBase64String(producto.Imagen)" width="100" height="100" /></td>
+                        }
+                        else
+                        {
+                            <td class="text-center"><img src="~/Content/sinImagen.jpg" style=" height:150px; width:150px;" /></td>
+                        }
+                        <td class="text-center"><a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("Delete", "Producto", new { IdProducto = producto.IdProducto })" onclick="return confirm('Estas seguro que deseas eliminar este registro?');"></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

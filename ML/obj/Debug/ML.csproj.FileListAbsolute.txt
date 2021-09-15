@@ -1,0 +1,14 @@
+C:\Users\ALIEN21\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\bin\Debug\ML.dll
+C:\Users\ALIEN21\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\bin\Debug\ML.pdb
+C:\Users\ALIEN21\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\obj\Debug\ML.dll
+C:\Users\ALIEN21\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\obj\Debug\ML.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\bin\Debug\ML.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\bin\Debug\ML.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\obj\Debug\ML.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\ML\obj\Debug\ML.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\bin\Debug\ML.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\bin\Debug\ML.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\obj\Debug\ML.csproj.AssemblyReference.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\obj\Debug\ML.csproj.CoreCompileInputs.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\obj\Debug\ML.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\ML\obj\Debug\ML.pdb

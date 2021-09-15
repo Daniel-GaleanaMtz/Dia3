@@ -1,0 +1,112 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>Usuario</h2>
+
+@using (Html.BeginForm("GetAll", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Nombre" })
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno" })
+            @Html.ValidationMessageFor(model => model.ApellidoPaterno)
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno" })
+            @Html.ValidationMessageFor(model => model.ApellidoMaterno)
+        </div>
+        <div class="col-md-1">
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </div>
+    </div>
+    <br />
+}
+@using (Html.BeginForm("AddUsers", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="url" id="url">
+    <div class="col-md-1">
+            <input type="submit" value="Cargar" class="btn btn-primary" />
+        </div>
+}
+    @*<div class="container">
+        <div class="row">
+            <div style="float:left; margin-bottom:1rem;">
+                    <div class="form-inline" style="display: flex; align-items: center; ">
+                        <form method="post">
+                            <input type="file" name="url" id="url">
+                            @Html.ActionLink("...", "AddUsers", "Usuario", htmlAttributes: new { @class = "btn btn-default"})
+                        </form>              
+                </div>
+                
+            </div>
+        </div>
+
+    </div>*@
+
+
+        <div class="container">
+            <div class="row">
+                <div style="float:right; margin-bottom:1rem;">
+                    @Html.ActionLink("+", "Form", "Usuario", htmlAttributes: new { @class = "btn btn-success" })
+                </div>
+
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Editar</td>
+                            <td class="hidden">IdUsuario</td>
+                            <td class="text-center">Email</td>
+                            <td class="hidden">Password</td>
+                            <td class="text-center">Nombre</td>
+                            <td class="text-center">ApellidoPaterno</td>
+                            <td class="text-center">ApellidoMaterno</td>
+                            <td class="text-center">FechaNacimiento</td>
+                            <td class="text-center">Sexo</td>
+                            <td class="hidden">IdRol</td>
+                            <td class="text-center">Nombre Rol</td>
+                            <td class="text-center">Estado</td>
+                            <td class="text-center">Telefono</td>
+                            <td class="text-center">Descargar Txt</td>
+                            <td class="text-center">Descargar XML</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ML.Usuario usuario in Model.Usuarios)
+                        {
+                            <tr>
+                                <td class="text-center"><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Usuario", new { IdUsuario = usuario.IdUsuario })"></a></td>
+                                <td class="hidden">@usuario.IdUsuario</td>
+                                <td class="text-center">@usuario.Email</td>
+                                <td class="hidden">@usuario.UserPassword</td>
+                                <td class="text-center">@usuario.Nombre</td>
+                                <td class="text-center">@usuario.ApellidoPaterno</td>
+                                <td class="text-center">@usuario.ApellidoMaterno</td>
+                                <td class="text-center">@usuario.FechaNacimiento.ToString("dd-MM-yyyy")</td>
+                                <td class="text-center">@usuario.Sexo</td>
+                                <td class="hidden">@usuario.Rol.IdRol</td>
+                                <td class="text-center">@usuario.Rol.Nombre</td>
+                                @if (usuario.Estado == true)
+                                {
+                                    <td class="text-center"><a href="@Url.Action("UpdateEstado", "Usuario", new { IdUsuario = usuario.IdUsuario })"><img src="~/Content/toggleOn.png" style=" height:20px; width:35px;" /></a></td>
+                                }
+                                @if (usuario.Estado == false)
+                                {
+                                    <td class="text-center"><a href="@Url.Action("UpdateEstado", "Usuario", new { IdUsuario = usuario.IdUsuario })"><img src="~/Content/toggleOff.png" style=" height:20px; width:35px;" /></a></td>
+                                }
+                                <td class="text-center">@usuario.Telefono</td>
+                                <td class="text-center"><a href="@Url.Action("GetTxt", "Usuario", new { IdUsuario = usuario.IdUsuario })">Descargar</a></td>
+                                <td class="text-center"><a href="@Url.Action("GetXml", "Usuario", new { IdUsuario = usuario.IdUsuario })">Descargar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+

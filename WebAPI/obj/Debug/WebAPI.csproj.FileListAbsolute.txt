@@ -1,0 +1,92 @@
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\WebAPI.dll.config
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\WebAPI.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\WebAPI.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\BL.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\EntityFramework.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\ML.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Helpers.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Http.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Mvc.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Optimization.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Razor.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\WebGrease.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\DL_EF.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\DL.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\BL.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\ML.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\EntityFramework.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\Newtonsoft.Json.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Helpers.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Http.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Mvc.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Optimization.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.Razor.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\Antlr3.Runtime.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\DL_EF.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\bin\DL.pdb
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.dll
+C:\Users\digis\Documents\Celso Daniel Galeana Martinez\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\WebAPI.dll.config
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\WebAPI.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\WebAPI.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\Antlr3.Runtime.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\BL.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\EntityFramework.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\EntityFramework.SqlServer.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\Microsoft.Web.Infrastructure.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\ML.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\Newtonsoft.Json.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Net.Http.Formatting.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Helpers.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Http.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Http.WebHost.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Mvc.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Optimization.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Razor.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Deployment.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Razor.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\WebGrease.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\DL_EF.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\DL.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\BL.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\BL.dll.config
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\ML.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\EntityFramework.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\EntityFramework.SqlServer.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\Newtonsoft.Json.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Net.Http.Formatting.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Helpers.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Http.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Http.WebHost.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Mvc.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Optimization.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.Razor.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Deployment.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\System.Web.WebPages.Razor.xml
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\Antlr3.Runtime.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\DL_EF.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\DL_EF.dll.config
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\bin\DL.pdb
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.csproj.AssemblyReference.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.dll
+Z:\Digis\02 - Programas\DGaleanaDia3\WebAPI\obj\Debug\WebAPI.pdb

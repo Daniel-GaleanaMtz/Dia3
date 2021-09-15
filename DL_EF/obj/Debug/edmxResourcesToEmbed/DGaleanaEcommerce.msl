@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DGaleanaEcommerceModelStoreContainer" CdmEntityContainer="DGaleanaEcommerceEntities1">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentoes">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodoPagoes">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.MetodoPago">
+        <MappingFragment StoreEntitySet="MetodoPago">
+          <ScalarProperty Name="IdMetodoPago" ColumnName="IdMetodoPago" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedors">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="IdMetodoPago" ColumnName="IdMetodoPago" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VentaProductoes">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.VentaProducto">
+        <MappingFragment StoreEntitySet="VentaProducto">
+          <ScalarProperty Name="IdVentaProducto" ColumnName="IdVentaProducto" />
+          <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DepartamentoAdd" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoAdd" />
+    <FunctionImportMapping FunctionImportName="DepartamentoDelete" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoDelete" />
+    <FunctionImportMapping FunctionImportName="DepartamentoUpdate" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoDelete" FunctionName="DGaleanaEcommerceModel.Store.ProductoDelete" />
+    <FunctionImportMapping FunctionImportName="VentaAdd" FunctionName="DGaleanaEcommerceModel.Store.VentaAdd" />
+    <FunctionImportMapping FunctionImportName="VentaProductoAdd" FunctionName="DGaleanaEcommerceModel.Store.VentaProductoAdd" />
+    <FunctionImportMapping FunctionImportName="DepartamentoGetById" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.DepartamentoGetById_Result">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AreaGetAll" FunctionName="DGaleanaEcommerceModel.Store.AreaGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.AreaGetAll_Result">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartamentoGetAll" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.DepartamentoGetAll_Result">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProveedorGetAll" FunctionName="DGaleanaEcommerceModel.Store.ProveedorGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.ProveedorGetAll_Result">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartamentoGetByIdArea" FunctionName="DGaleanaEcommerceModel.Store.DepartamentoGetByIdArea">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.DepartamentoGetByIdArea_Result">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ProductoAdd" FunctionName="DGaleanaEcommerceModel.Store.ProductoAdd" />
+    <FunctionImportMapping FunctionImportName="ProductoGetAll" FunctionName="DGaleanaEcommerceModel.Store.ProductoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.ProductoGetAll_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="ProductoNombre" ColumnName="ProductoNombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="ProveedorNombre" ColumnName="ProveedorNombre" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductoGetById" FunctionName="DGaleanaEcommerceModel.Store.ProductoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.ProductoGetById_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="ProductoNombre" ColumnName="ProductoNombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="ProveedorNombre" ColumnName="ProveedorNombre" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductoUpdate" FunctionName="DGaleanaEcommerceModel.Store.ProductoUpdate" />
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RolGetAll" FunctionName="DGaleanaEcommerceModel.Store.RolGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.RolGetAll_Result">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioGetById" FunctionName="DGaleanaEcommerceModel.Store.UsuarioGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.UsuarioGetById_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="RolNombre" ColumnName="RolNombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioGetAll" FunctionName="DGaleanaEcommerceModel.Store.UsuarioGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DGaleanaEcommerceModel.UsuarioGetAll_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="RolNombre" ColumnName="RolNombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DGaleanaEcommerceModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="DGaleanaEcommerceModel.Store.UsuarioUpdate" />
+    <FunctionImportMapping FunctionImportName="UsuarioAdd" FunctionName="DGaleanaEcommerceModel.Store.UsuarioAdd" />
+  </EntityContainerMapping>
+</Mapping>

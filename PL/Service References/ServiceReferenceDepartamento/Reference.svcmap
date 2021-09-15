@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7d58a13-5b4b-41bf-9f98-4493ae101a32" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:10967/ServiceDepartamento.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceDepartamento.xsd" MetadataType="Schema" ID="fee93305-cb98-441d-886b-34d544721e08" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceDepartamento.disco" MetadataType="Disco" ID="b240933c-57a7-400a-a8fc-49149bbbdb82" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?disco" />
+    <MetadataFile FileName="ServiceDepartamento1.xsd" MetadataType="Schema" ID="46b174df-1a9e-4e9c-bab5-73db1ae83bb4" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServiceDepartamento2.xsd" MetadataType="Schema" ID="8b47d14b-a626-4f2d-aabd-df814e7162a0" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceDepartamento3.xsd" MetadataType="Schema" ID="57db5e46-ecfb-4511-b17b-96d17f00f302" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceDepartamento.wsdl" MetadataType="Wsdl" ID="e94b7e51-3137-43c3-8721-f57863a6741f" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?wsdl" />
+    <MetadataFile FileName="ServiceDepartamento4.xsd" MetadataType="Schema" ID="aaf3e002-ece4-4140-9a24-99a815d19cc0" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceDepartamento5.xsd" MetadataType="Schema" ID="a4a9567b-a903-4378-8243-a4952f73ca7f" SourceId="1" SourceUrl="http://localhost:10967/ServiceDepartamento.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

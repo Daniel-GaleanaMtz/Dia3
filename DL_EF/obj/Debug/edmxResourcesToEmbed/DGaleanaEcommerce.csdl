@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DGaleanaEcommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Departamentoes" Relationship="Self.FK_Departamento_Area" FromRole="Area" ToRole="Departamento" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RFC" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK_Venta_Cliente" FromRole="Cliente" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="IdArea" Type="Int32" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_Departamento_Area" FromRole="Departamento" ToRole="Area" />
+    <NavigationProperty Name="Productoes" Relationship="DGaleanaEcommerceModel.FK_Producto_Departamento" FromRole="Departamento" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="IdMetodoPago" />
+    </Key>
+    <Property Name="IdMetodoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ventas" Relationship="Self.FK_Venta_MetodoPago" FromRole="MetodoPago" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productoes" Relationship="DGaleanaEcommerceModel.FK_Producto_Proveedor" FromRole="Proveedor" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="IdVenta" />
+    </Key>
+    <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="IdMetodoPago" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Venta_Cliente" FromRole="Venta" ToRole="Cliente" />
+    <NavigationProperty Name="MetodoPago" Relationship="Self.FK_Venta_MetodoPago" FromRole="Venta" ToRole="MetodoPago" />
+    <NavigationProperty Name="VentaProductoes" Relationship="Self.FK_VentaProducto_Venta" FromRole="Venta" ToRole="VentaProducto" />
+  </EntityType>
+  <EntityType Name="VentaProducto">
+    <Key>
+      <PropertyRef Name="IdVentaProducto" />
+    </Key>
+    <Property Name="IdVentaProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVenta" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="IdProducto" Type="Int32" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK_VentaProducto_Venta" FromRole="VentaProducto" ToRole="Venta" />
+    <NavigationProperty Name="Producto" Relationship="DGaleanaEcommerceModel.FK_VentaProducto_Producto" FromRole="VentaProducto" ToRole="Producto" />
+  </EntityType>
+  <Association Name="FK_Departamento_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="IdArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venta_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venta_MetodoPago">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="0..1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="IdMetodoPago" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="IdMetodoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VentaProducto_Venta">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+    <End Role="VentaProducto" Type="Self.VentaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="IdVenta" />
+      </Principal>
+      <Dependent Role="VentaProducto">
+        <PropertyRef Name="IdVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DGaleanaEcommerceEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Departamentoes" EntityType="Self.Departamento" />
+    <EntitySet Name="MetodoPagoes" EntityType="Self.MetodoPago" />
+    <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+    <EntitySet Name="Ventas" EntityType="Self.Venta" />
+    <EntitySet Name="VentaProductoes" EntityType="Self.VentaProducto" />
+    <AssociationSet Name="FK_Departamento_Area" Association="Self.FK_Departamento_Area">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Departamento" EntitySet="Departamentoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venta_Cliente" Association="Self.FK_Venta_Cliente">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Venta" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venta_MetodoPago" Association="Self.FK_Venta_MetodoPago">
+      <End Role="MetodoPago" EntitySet="MetodoPagoes" />
+      <End Role="Venta" EntitySet="Ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VentaProducto_Venta" Association="Self.FK_VentaProducto_Venta">
+      <End Role="Venta" EntitySet="Ventas" />
+      <End Role="VentaProducto" EntitySet="VentaProductoes" />
+    </AssociationSet>
+    <FunctionImport Name="DepartamentoAdd">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdArea" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DepartamentoDelete">
+      <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DepartamentoUpdate">
+      <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdArea" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoDelete">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VentaAdd">
+      <Parameter Name="IdCliente" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+      <Parameter Name="IdMetodoPago" Mode="In" Type="Int32" />
+      <Parameter Name="IdVenta" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VentaProductoAdd">
+      <Parameter Name="IdVenta" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DepartamentoGetById" ReturnType="Collection(DGaleanaEcommerceModel.DepartamentoGetById_Result)">
+      <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AreaGetAll" ReturnType="Collection(DGaleanaEcommerceModel.AreaGetAll_Result)" />
+    <FunctionImport Name="DepartamentoGetAll" ReturnType="Collection(DGaleanaEcommerceModel.DepartamentoGetAll_Result)" />
+    <FunctionImport Name="ProveedorGetAll" ReturnType="Collection(DGaleanaEcommerceModel.ProveedorGetAll_Result)" />
+    <FunctionImport Name="DepartamentoGetByIdArea" ReturnType="Collection(DGaleanaEcommerceModel.DepartamentoGetByIdArea_Result)">
+      <Parameter Name="IdArea" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Productoes" EntityType="DGaleanaEcommerceModel.Producto" />
+    <AssociationSet Name="FK_Producto_Departamento" Association="DGaleanaEcommerceModel.FK_Producto_Departamento">
+      <End Role="Departamento" EntitySet="Departamentoes" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Proveedor" Association="DGaleanaEcommerceModel.FK_Producto_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedors" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VentaProducto_Producto" Association="DGaleanaEcommerceModel.FK_VentaProducto_Producto">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="VentaProducto" EntitySet="VentaProductoes" />
+    </AssociationSet>
+    <FunctionImport Name="ProductoAdd">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+      <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoGetAll" ReturnType="Collection(DGaleanaEcommerceModel.ProductoGetAll_Result)" />
+    <FunctionImport Name="ProductoGetById" ReturnType="Collection(DGaleanaEcommerceModel.ProductoGetById_Result)">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoUpdate">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+      <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="IdDepartamento" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <EntitySet Name="Rols" EntityType="DGaleanaEcommerceModel.Rol" />
+    <FunctionImport Name="RolGetAll" ReturnType="Collection(DGaleanaEcommerceModel.RolGetAll_Result)" />
+    <FunctionImport Name="UsuarioGetById" ReturnType="Collection(DGaleanaEcommerceModel.UsuarioGetById_Result)">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioGetAll" ReturnType="Collection(DGaleanaEcommerceModel.UsuarioGetAll_Result)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Usuarios" EntityType="DGaleanaEcommerceModel.Usuario" />
+    <AssociationSet Name="FK_Usuario_Rol" Association="DGaleanaEcommerceModel.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <FunctionImport Name="UsuarioUpdate" ReturnType="Collection(String)">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+      <Parameter Name="IdRol" Mode="In" Type="Int32" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioAdd" ReturnType="Collection(String)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="String" />
+      <Parameter Name="Sexo" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+      <Parameter Name="IdRol" Mode="In" Type="Int32" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="DepartamentoGetById_Result">
+    <Property Type="Int32" Name="IdDepartamento" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="IdArea" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AreaGetAll_Result">
+    <Property Type="Int32" Name="IdArea" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="DepartamentoGetAll_Result">
+    <Property Type="Int32" Name="IdDepartamento" Nullable="false" />
+    <Property Type="String" Name="DepartamentoNombre" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="IdArea" Nullable="true" />
+    <Property Type="String" Name="AreaNombre" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="ProveedorGetAll_Result">
+    <Property Type="Int32" Name="IdProveedor" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="DepartamentoGetByIdArea_Result">
+    <Property Type="Int32" Name="IdDepartamento" Nullable="false" />
+    <Property Type="String" Name="DepartamentoNombre" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="IdArea" Nullable="true" />
+    <Property Type="String" Name="AreaNombre" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="IdProveedor" Type="Int32" />
+    <Property Name="IdDepartamento" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Images" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Departamento" Relationship="DGaleanaEcommerceModel.FK_Producto_Departamento" FromRole="Producto" ToRole="Departamento" />
+    <NavigationProperty Name="Proveedor" Relationship="DGaleanaEcommerceModel.FK_Producto_Proveedor" FromRole="Producto" ToRole="Proveedor" />
+    <NavigationProperty Name="VentaProductoes" Relationship="DGaleanaEcommerceModel.FK_VentaProducto_Producto" FromRole="Producto" ToRole="VentaProducto" />
+  </EntityType>
+  <Association Name="FK_Producto_Departamento">
+    <End Type="DGaleanaEcommerceModel.Departamento" Role="Departamento" Multiplicity="0..1" />
+    <End Type="DGaleanaEcommerceModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Proveedor">
+    <End Type="DGaleanaEcommerceModel.Proveedor" Role="Proveedor" Multiplicity="0..1" />
+    <End Type="DGaleanaEcommerceModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VentaProducto_Producto">
+    <End Type="DGaleanaEcommerceModel.Producto" Role="Producto" Multiplicity="0..1" />
+    <End Type="DGaleanaEcommerceModel.VentaProducto" Role="VentaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="VentaProducto">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="ProductoGetAll_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="ProductoNombre" Nullable="true" MaxLength="25" />
+    <Property Type="Decimal" Name="Precio" Nullable="true" Precision="20" Scale="0" />
+    <Property Type="Int32" Name="Stock" Nullable="true" />
+    <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+    <Property Type="Int32" Name="IdDepartamento" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="30" />
+    <Property Type="Binary" Name="Images" Nullable="true" />
+    <Property Type="String" Name="ProveedorNombre" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DepartamentoNombre" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="IdArea" Nullable="false" />
+    <Property Type="String" Name="AreaNombre" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="ProductoGetById_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="ProductoNombre" Nullable="true" MaxLength="25" />
+    <Property Type="Decimal" Name="Precio" Nullable="true" Precision="20" Scale="0" />
+    <Property Type="Int32" Name="Stock" Nullable="true" />
+    <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+    <Property Type="Int32" Name="IdDepartamento" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="30" />
+    <Property Type="Binary" Name="Images" Nullable="true" />
+    <Property Type="String" Name="ProveedorNombre" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="DepartamentoNombre" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="IdArea" Nullable="false" />
+    <Property Type="String" Name="AreaNombre" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="DGaleanaEcommerceModel.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <ComplexType Name="RolGetAll_Result">
+    <Property Type="Int32" Name="IdRol" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="UsuarioGetById_Result">
+    <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UsuarioNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+    <Property Type="String" Name="Sexo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+    <Property Type="Int32" Name="IdRol" Nullable="false" />
+    <Property Type="String" Name="RolNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="UsuarioGetAll_Result">
+    <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UsuarioNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+    <Property Type="String" Name="Sexo" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+    <Property Type="Int32" Name="IdRol" Nullable="false" />
+    <Property Type="String" Name="RolNombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="12" />
+  </ComplexType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="IdRol" Type="Int32" />
+    <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rol" Relationship="DGaleanaEcommerceModel.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK_Usuario_Rol">
+    <End Type="DGaleanaEcommerceModel.Rol" Role="Rol" Multiplicity="0..1" />
+    <End Type="DGaleanaEcommerceModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
